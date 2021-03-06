@@ -1,0 +1,16 @@
+<app-table-with-pagination 
+#todoTable
+*ngIf="todoList"
+[todoList]="returnTableList(page)"
+[page]="page"
+(deleteSuccess)="deleteSucceed($event)"
+(editSuccess)="editSucceed($event)">
+</app-table-with-pagination>
+
+
+<ngb-pagination *ngIf="todoList"
+[collectionSize]="todoList.length"
+[(page)]="page"
+[maxSize]="10" 
+[boundaryLinks]="true"
+(pageChange)="onPageChanged($event)"></ngb-pagination>
